@@ -1,2 +1,2 @@
 # hayk-TreeDB
-referrals tracking database
+referrals tracking database, PHP, MySQL, russian, english
