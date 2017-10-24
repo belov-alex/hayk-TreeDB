@@ -1,0 +1,31 @@
+edit.php - при заполнении полей формы из БД берутся только первая часть сложных имён и фамилий (до пробела) e.g. Aurelion Sol
+
+
+edit.php - добавить функцию удаления client record
+        DELETE FROM `clients` WHERE `clients`.`user_id` = 23;
+        продумать логику обновления полей referred_clients при удалении
+add.php, edit.php - добавить обновление полей referred_amount и bonus_points при добавлении клиента или обновлении (новый платёж)
+index.php - добавить общую статистику (referred_amount)
+вкладка с деревом клиентов
+закрыть sql connections
+=======================
+done
+  search.php - поиск по любому user_id выдаёт всю базу
+            search починить логику вложенных if
+  add.php - добавить user_id перед фамилией в дропдаун меню
+  add.php  - sort by id в dropdown referall menu
+  index.php - починить статистику рефералов (referral_id NULL -> 0)
+            SELECT `referral_id` FROM `clients` WHERE `referral_id` != '0'
+  index.php - починить recent clinents
+  add.php - добавить пустое поле в drop-down referrer
+  написать функцию автообновления referred_clients при добавлении клиента
+          UPDATE clients
+          SET referred_clients = referred_clients + 1
+          WHERE user_id = 7
+  show.php - проверить поиск по одной дате
+  show.php - убрать пустой вывод при пустом поиске
+  возврат домой с search.php
+  кнопка "Недавние клиенты"
+            select * from clients order by last_update desc limit 10
+  add.php -> упростить выбор реферала
+            select last_name, first_name, reg_date, from clients order by last_name
